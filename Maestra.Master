@@ -1,0 +1,153 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Maestra.master.cs" Inherits="CapaPresentacion.Maestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+
+
+    <link href="styles/styleNavBar.css" rel="stylesheet" />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="utils/tipoProducto.js"></script>
+
+
+    <style>
+        .cell {
+            font-size: 13px;
+        }
+    </style>
+
+
+    <style>
+        .roundedcorner {
+            font-size: 11pt;
+            margin-left: auto;
+            margin-top: 1px;
+            margin-bottom: 1px;
+            padding: 3px;
+            border-top: 1px solid;
+            border-left: 1px solid;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            -moz-border-radius: 8px;
+            -webkit-border-radius: 8px;
+        }
+
+        .background {
+            background-color: black;
+            filter: alpha(opacity=90);
+            opacity: 0.8;
+        }
+
+        .popup {
+            background-color: aqua;
+            border-width: 3px;
+            border-style: solid;
+            border-color: black;
+            padding-top: 10px;
+            padding-left: 10px;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+
+
+    <link href="styles/MenuPrincipal.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script>
+        $('.btn-expand-collapse').click(function (e) {
+            $('.navbar-primary').toggleClass('collapsed');
+        });
+
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <nav class="navbar navbar-inverse navbar-global navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                            aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="Home.aspx">AWGP&nbsp;Aplicacion&nbsp;Web&nbsp;Gestion&nbsp;Pedido&nbsp;version 1.0</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-user navbar-right">
+                            <li style="margin: auto;">
+                                <br />
+                                <asp:Label Style="color: #FFFFFF; font-weight: bold; font-size: 17px;" ID="lbluser" runat="server" Text="¿Quién es usted?"></asp:Label></li>
+                            <li>
+                                <img class="glyphicon glyphicon-user" src="imagenes/pizza.png" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <div class="contenedor" style="margin-top: 50px;">
+                <nav class="generalmenu">
+                    <!--<a href="#" class="btn-expand-collapse"><span class="glyphicon glyphicon-menu-left"></span></a>-->
+                    <ul class="listadesordenada">
+                        <input type="radio" name="generalmenu" id="inusuario" checked>
+                        <li class="itemlista" id="itemCatalogo">
+                            <label for="inusuario" class="titulo"><i class="fa fa-book"></i>Cat&aacute;logo</label>
+                            <!--<a id="tagtipopedido" class="enlace" href="FormPresentacion.aspx"></a>-->
+                            <!--<a class="enlace" href="#"></a>-->
+                        </li>
+                        <input type="radio" name="generalmenu" id="inpedidos">
+                        <li class="itemlista">
+                            <label for="inpedidos" class="titulo"><i class="fa fa-user"></i>Iniciar sesión</label>
+                            <a class="enlace" href="FormLogin.aspx">Ingresar</a>
+                            <!--<a class="enlace" href="#" >Salir</a>-->
+                            <asp:LinkButton class="enlace" ID="lnkCallHyperlink" Text="Salir" runat="server" OnClick="lnkCallHyperlink_Click" />
+                            <input type="radio" name="generalmenu" id="inreportes">
+                       <!--- <li class="itemlista">
+                            <label for="inreportes" class="titulo"><i class="fa fa-file"></i>Reportes</label>
+                            <a class="enlace" href="#">Registrar</a>
+                            <a class="enlace" href="#">Consultar</a>
+                            <a class="enlace" href="#">Eliminar</a>
+                            <a class="enlace" href="#">Listar</a>
+                        </li>-->
+
+
+                       <!-- <input type="radio" name="generalmenu" id="inopciones">
+                        <li class="itemlista">
+                            <label for="inopciones" class="titulo"><i class="fa fa-file"></i>Opciones</label>
+                            <a class="enlace" href="#" onclick="cerrarSesion">Salir</a>
+                        </li>-->
+
+
+                        <li class="itemlista">
+                            <h5>
+                                <asp:Label CssClass="titulo" ID="lblUsuario" runat="server" Text=""></asp:Label></h5>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+
+
+
+
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+</body>
+</html>
